@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>てまごりゲーム集 | TEMAGORI GAMES</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100%;
+    background: #050914; color: #eaf2ff;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  }
+  #bg { position: fixed; inset: 0; z-index: 0; }
+  main { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 56px 20px 40px; }
+  header { text-align: center; margin-bottom: 44px; }
+  header h1 {
+    margin: 0 0 8px; font-size: clamp(30px, 6vw, 48px); letter-spacing: 0.12em;
+    text-shadow: 0 0 24px rgba(150, 190, 255, 0.85);
+  }
+  header .sub { color: #9fc0ff; letter-spacing: 0.35em; font-size: clamp(11px, 2.4vw, 14px); }
+  header p { color: #c9dbff; margin-top: 18px; line-height: 1.9; font-size: 15px; }
+  .grid {
+    display: grid; gap: 22px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  .card {
+    display: block; text-decoration: none; color: inherit;
+    background: rgba(10, 18, 40, 0.72);
+    border: 1px solid rgba(160, 190, 255, 0.28);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 233, 168, 0.65);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 18px rgba(255, 233, 168, 0.15);
+  }
+  .thumb {
+    height: 132px; display: flex; align-items: center; justify-content: center;
+    font-size: 58px;
+  }
+  .thumb.meteor { background: linear-gradient(135deg, #0b1e4b 0%, #274b8f 55%, #4a2f6b 100%); }
+  .thumb.terrain { background: linear-gradient(135deg, #0d3325 0%, #2e7d4f 55%, #7fc97f 100%); }
+  .thumb.soon { background: linear-gradient(135deg, #1a1a26 0%, #35354a 100%); }
+  .body { padding: 16px 18px 20px; }
+  .body h2 { margin: 0 0 6px; font-size: 20px; letter-spacing: 0.04em; }
+  .body p { margin: 0 0 14px; color: #b9cdf5; font-size: 14px; line-height: 1.8; min-height: 3.6em; }
+  .meta { display: flex; justify-content: space-between; align-items: center; }
+  .author {
+    font-size: 12px; color: #0a1230; background: #ffe9a8;
+    border-radius: 999px; padding: 3px 10px; font-weight: 700;
+  }
+  .author.gemini { background: #a8d8ff; }
+  .author.none { background: #5a6480; color: #dfe8ff; }
+  .play { color: #8fd8ff; font-weight: 700; font-size: 14px; }
+  .card.soon { pointer-events: none; opacity: 0.75; }
+  footer {
+    text-align: center; color: rgba(180, 200, 240, 0.55);
+    font-size: 12px; margin-top: 48px; line-height: 1.9;
+  }
+  footer a { color: rgba(160, 195, 255, 0.8); }
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<main>
+  <header>
+    <h1>🎮 てまごりゲーム集</h1>
+    <div class="sub">T E M A G O R I&nbsp;&nbsp;G A M E S</div>
+    <p>AIと一緒に作った、小さなブラウザゲーム置き場。<br>インストール不要、そのままブラウザで遊べます。</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="https://naway0141-source.github.io/meteor-catch/">
+      <div class="thumb meteor">🌠</div>
+      <div class="body">
+        <h2>流れ星キャッチャー</h2>
+        <p>流れ星をクリックでつかまえて、星座を完成させる星空ゲーム。金色の星は高得点、流星群もやってくる。眺めるだけでもOK。</p>
+        <div class="meta"><span class="author">作：タマ（Muse）</span><span class="play">▶ あそぶ</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://naway0141-source.github.io/poly-terrain/">
+      <div class="thumb terrain">🏔️</div>
+      <div class="body">
+        <h2>POLY-TERRAIN 3D</h2>
+        <p>ローポリの山岳地形を自動生成して眺めるシミュレータ。シードを変えれば景色が変わる、飛行と録画もできる眺める系。</p>
+        <div class="meta"><span class="author gemini">作：Gemini</span><span class="play">▶ あそぶ</span></div>
+      </div>
+    </a>
+
+    <div class="card soon">
+      <div class="thumb soon">✨</div>
+      <div class="body">
+        <h2>次回作にご期待</h2>
+        <p>猫テーマか、電波（RF）テーマか…。アイデアが固まったらここに並びます。</p>
+        <div class="meta"><span class="author none">COMING SOON</span><span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    てまごりゲーム集 — <a href="https://github.com/naway0141-source">github.com/naway0141-source</a><br>
+    Hosted on GitHub Pages
+  </footer>
+</main>
+
+<script>
+"use strict";
+// 背景：瞬く星＋たまに流れ星
+const cv = document.getElementById("bg");
+const cx = cv.getContext("2d");
+let W = 0, H = 0, stars = [], meteors = [];
+function resize() {
+  W = window.innerWidth; H = window.innerHeight;
+  cv.width = W; cv.height = H;
+  stars = [];
+  const n = Math.floor((W * H) / 9000);
+  for (let i = 0; i < n; i++) {
+    stars.push({ x: Math.random() * W, y: Math.random() * H, r: 0.4 + Math.random() * 1.2, p: Math.random() * 6.28, s: 0.4 + Math.random() });
+  }
+}
+window.addEventListener("resize", resize);
+resize();
+function frame(t) {
+  const g = cx.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, "#04061a"); g.addColorStop(1, "#0d1d42");
+  cx.fillStyle = g; cx.fillRect(0, 0, W, H);
+  for (const s of stars) {
+    cx.globalAlpha = 0.5 + 0.5 * Math.sin(t * 0.001 * s.s + s.p);
+    cx.fillStyle = "#eaf2ff";
+    cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, 6.29); cx.fill();
+  }
+  cx.globalAlpha = 1;
+  if (Math.random() < 0.004 && meteors.length < 2) {
+    meteors.push({ x: W * (0.3 + Math.random() * 0.6), y: H * Math.random() * 0.25, vx: -(300 + Math.random() * 250), vy: 200 + Math.random() * 120, born: t });
+  }
+  meteors = meteors.filter(m => t - m.born < 1600);
+  for (const m of meteors) {
+    const dt = (t - m.born) / 1000;
+    const x = m.x + m.vx * dt, y = m.y + m.vy * dt;
+    const sp = Math.hypot(m.vx, m.vy);
+    const tx = x - (m.vx / sp) * 110, ty = y - (m.vy / sp) * 110;
+    const lg = cx.createLinearGradient(tx, ty, x, y);
+    lg.addColorStop(0, "rgba(210,230,255,0)"); lg.addColorStop(1, "rgba(210,230,255,0.9)");
+    cx.strokeStyle = lg; cx.lineWidth = 2; cx.lineCap = "round";
+    cx.beginPath(); cx.moveTo(tx, ty); cx.lineTo(x, y); cx.stroke();
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

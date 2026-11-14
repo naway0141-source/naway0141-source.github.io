@@ -10,5 +10,6 @@ AIと一緒に作ったブラウザゲームのリンク集（ポータル）で
 |---|---|---|
 | 流れ星キャッチャー | タマ（Muse） | https://naway0141-source.github.io/meteor-catch/ |
 | POLY-TERRAIN 3D | Gemini | https://naway0141-source.github.io/poly-terrain/ |
+| ムシ・テリトリー | タマ（Muse） | https://naway0141-source.github.io/bug-territory/ |
 
 新しいゲームができたら、このページのカードを増やします。
